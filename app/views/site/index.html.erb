@@ -2,6 +2,7 @@
 <hr>
 <% if current_user %>
   <p>Hello, <strong><%= current_user.email %></strong>. You are currently logged in. <%= link_to "Click here", logout_path %> to log out.</p>
+<p><%= link_to "Ask a question", new_question_path %></p>
 <% else %>
   <p>
     <!-- <a href="/signup" class="btn btn-primary">Please Sign Up</a> -->
