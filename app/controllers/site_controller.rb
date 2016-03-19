@@ -1,7 +1,9 @@
 class SiteController < ApplicationController
 
   def index
-    render :index
+   if current_user
+     redirect_to :profile
+   end
   end
 
 end
