@@ -39,7 +39,9 @@ gem 'sqlite3'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem "paperclip", "~> 4.3"
+gem 'headshot'
+gem 'protected_attributes' # needed for headshot
 
 group :development do |variable|
-gem 'pry'  
+gem 'pry'
 end

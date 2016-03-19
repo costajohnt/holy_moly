@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  helper :headshot
 
   def index
     @questions = Question.all
@@ -13,6 +14,7 @@ class QuestionsController < ApplicationController
     # redirect user if already logged in
     @question = Question.new(question_params)
     @question.user_id = current_user.id
+    @question.headshot_photos << HeadshotPhoto.last
     if @question.save
       flash[:notice] = "Question saved."
     else

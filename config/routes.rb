@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post "headshot/capture" => 'headshot#capture', :as => :headshot_capture
   root to: "site#index"
 
   get "/signup", to: "users#new", as: :signup

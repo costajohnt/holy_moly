@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   def new
     # redirect user if already logged in
     if current_user
-      redirect_to profile_path
+      redirect_to user_questions_path(current_user.id) 
     else
       render :new
     end
