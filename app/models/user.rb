@@ -15,4 +15,6 @@ class User < ActiveRecord::Base
       message: "not a valid format"
     }
 
+  has_many :questions
+
 end

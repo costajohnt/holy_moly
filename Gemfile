@@ -38,4 +38,4 @@ gem 'mysql2', '~> 0.3.13'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+gem "paperclip", "~> 4.3"
