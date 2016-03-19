@@ -18,3 +18,15 @@
 .question-details .icon {
   font-size: 12px;
 }
+
+.question-picture {
+  float: left;
+}
+
+.questions .media-body {
+  padding-left: 20px;
+}
+
+.questions .question .data {
+  color: blue; 
+}

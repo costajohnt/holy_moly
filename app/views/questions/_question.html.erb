@@ -1,9 +1,33 @@
-<li class="table-view-cell media">
-  <a class="navigate-right"
-    href="<%=user_question_path(current_user, question.id)%>">
-    <img class="media-object pull-left" src="http://baconmockup.com/42/42/">
-    <div class="media-body">
-      <%= question.title %>:
+<li class="table-view-cell media questions">
+  <a class="navigate-right question"
+  href="<%=user_question_path(current_user, question.id)%>">
+  <div class="question-picture">
+
+    <% if question.headshot_photos.present? %>
+    <%=image_tag(headshot_custom_image_url(question.headshot_photos.first.image_file_name), size: "100x100", alt: "Edit Entry") %>
+    <% else %>
+    <img class="media-object pull-left" src="http://baconmockup.com/100/100/">
+    <% end %>
+  </div>
+
+  <div class="media-body">
+    <%= question.title %>
+    <div class="data">
+      <span>
+        1 response
+      </span>
+      •
+      <span >
+        2 votes
+      </span>
     </div>
-  </a>
+    <div class="responders">
+      <img class="media-object pull-left" src="https://placekitten.com/31/30">
+      <img class="media-object pull-left" src="https://placekitten.com/31/30">
+      <img class="media-object pull-left" src="https://placekitten.com/31/30">
+
+    </div>
+  </div>
+
+</a>
 </li>

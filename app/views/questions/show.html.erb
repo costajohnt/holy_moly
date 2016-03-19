@@ -20,7 +20,7 @@
           <h1>
             <%=@question.title%>
             <p>
-              <%=l @question.created_at, format: :short%>
+              <%=time_ago_in_words @question.created_at%> ago
             </p>
           </h1>
           <span class="icon icon-star-filled"></span>4

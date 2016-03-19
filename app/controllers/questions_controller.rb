@@ -22,6 +22,10 @@ class QuestionsController < ApplicationController
     redirect_to user_questions_path(current_user.id)
   end
 
+  def edit
+    @question = Question.find(params[:id])
+  end
+
   def show
     @question = Question.find(params[:id])
     render :show
