@@ -1,10 +1,16 @@
-<button class="btn btn-primary btn-block">Add Question</button>
-
+<div>
+  Responses
 </div>
-All Questions
-<% @questions.each do |q| %>
-    <li>
-      <%= q.title %>:
-      <%= q.content %>
-    </li>
-<% end %>
+
+<ul class="table-view">
+  <%= render @questions %>
+</ul>
+
+<div>
+  Pending
+</div>
+
+<ul class="table-view">
+  <%= render @questions %>
+</ul>
+
