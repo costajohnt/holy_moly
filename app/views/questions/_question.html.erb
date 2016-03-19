@@ -14,17 +14,17 @@
     <%= question.title %>
     <div class="data">
       <span>
-        1 response
+        <%=question.answers.count%> response
       </span>
       •
       <span >
-        2 votes
+        <%=question.answers.count%> votes
       </span>
     </div>
     <div class="responders">
-      <img class="media-object pull-left" src="https://placekitten.com/31/30">
-      <img class="media-object pull-left" src="https://placekitten.com/31/30">
-      <img class="media-object pull-left" src="https://placekitten.com/31/30">
+      <%question.answers.count.times do %>
+        <img class="media-object pull-left" src="https://placekitten.com/31/30">
+      <%end%>
 
     </div>
   </div>

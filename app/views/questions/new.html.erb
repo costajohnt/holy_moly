@@ -7,8 +7,7 @@ New Question
   <%= f.text_area :content, placeholder: "Detailed Question", class: "form-control", size: "10x5" %>
 <%= headshot_default_config(Rails.application.config.session_options[:key], headshot_capture_path) %>
 <%= headshot_camera %>
-<%= headshot_snap_button('Shoot') %>
-  <%= f.submit "Save Question", class: "btn btn-primary btn-block" %>
+<%= headshot_snap_button('Save Question') %>
 <% end %>
 
 <div>
