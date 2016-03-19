@@ -12,14 +12,12 @@ module Nurses
     end
 
     def create 
-      if current_user.role = 'nurse'
-        @question = Question.find(params[:question_id])
-        @answer = current_user.answers.create(answer_params)
+      @question = Question.find(params[:question_id])
+      @answer = current_user.answers.create(answer_params)
 
-        if @answer.save
-          @question.answers << @answer
-          redirect_to nurses_question_answer
-        end
+      if @answer.save
+        @question.answers << @answer
+        redirect_to nurses_question_answers_path
       end
     end
 

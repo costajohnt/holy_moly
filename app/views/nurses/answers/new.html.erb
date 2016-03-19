@@ -34,7 +34,7 @@
 
 New Answer
 
-<%= form_for [current_user, @question, @answer] do |f| %>
+<%= form_for [:nurses, @question, @answer] do |f| %>
   <%= f.text_area :content, placeholder: "Detailed Answer", class: "form-control", size: "10x5" %>
   <%= f.submit "Save Answer", class: "btn btn-primary btn-block" %>
 <% end %>
