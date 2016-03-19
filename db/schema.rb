@@ -13,6 +13,12 @@
 
 ActiveRecord::Schema.define(version: 20160319183714) do
 
+  create_table "answers", force: true do |t|
+    t.string   "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "questions", force: true do |t|
     t.string   "query"
     t.integer  "user_id"
