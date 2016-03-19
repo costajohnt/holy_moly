@@ -32,11 +32,11 @@
     </p>
     <% @answers.each do |a| %>
       <hr />
-      <%= @a.email%>
+      <%= a.email%>
       <p>
-        <%=time_ago_in_words(@a.created_at)%>
+        <%=time_ago_in_words(a.created_at)%>
       </p>
-      <%= @a.content%>
+      <%= a.content%>
     <% end %>
     <hr />
     <%= link_to "Add Your Answer", new_user_question_answer_path(user_id: current_user.id, question_id: @question.id), class: "btn btn-primary btn-outlined" %>
