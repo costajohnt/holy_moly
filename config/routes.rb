@@ -14,7 +14,9 @@ Rails.application.routes.draw do
     end
   end
   resources :sessions, only: [:create]
-  resources :questions do
-    resources :answers
+  namespace :nurses do
+    resources :questions do
+      resources :answers
+    end
   end
 end
