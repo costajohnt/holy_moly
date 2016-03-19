@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160319180502) do
+=======
+ActiveRecord::Schema.define(version: 20160319175045) do
+
+  create_table "questions", force: true do |t|
+    t.string   "query"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+>>>>>>> 9d432e9ebb3a9419928e3da4dacca66957070239
 
   create_table "users", force: true do |t|
     t.string   "email"
