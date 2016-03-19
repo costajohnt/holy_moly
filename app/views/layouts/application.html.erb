@@ -23,6 +23,11 @@
       <%=yield :title%>
     </h1>
     <% if current_user %>
+    <% if content_for :back %>
+    <button class="btn pull-left">
+      <%=yield :back%>
+    </button>
+    <% end %>
     <button class="btn pull-right">
       <%= link_to "Log out", logout_path %>
     </button>
@@ -44,37 +49,37 @@
 
   <div class="content">
     <p class="content-padded">
-    <%= yield %>
-  </div>
+      <%= yield %>
+    </div>
 
-  <% if current_user %>
-  <nav class="bar bar-tab">
-    <a class="tab-item" href="<%=user_questions_path(current_user.id)%>">
-      <span class="icon icon-home"></span>
-      <span class="tab-label">Home</span>
-    </a>
-    <a class="tab-item" href="#">
-      <span class="icon icon-person"></span>
-      <span class="tab-label">Profile</span>
-    </a>
-    <a class="tab-item" href="#">
-      <span class="icon icon-share"></span>
-      <span class="tab-label">Add case</span>
-    </a>
-    <% if current_user.nurse? %>
-    <a class="tab-item" href="#">
-      <span class="icon icon-list"></span>
-      <span class="tab-label">Questions</span>
-    </a>
-    <% else %>
-    <a class="tab-item" href="<%= user_questions_path(current_user.id)%>">
-      <span class="icon icon-list"></span>
-      <span class="tab-label">Journal</span>
-    </a>
+    <% if current_user %>
+    <nav class="bar bar-tab">
+      <a class="tab-item" href="<%=user_questions_path(current_user.id)%>">
+        <span class="icon icon-home"></span>
+        <span class="tab-label">Home</span>
+      </a>
+      <a class="tab-item" href="<%= user_questions_path(current_user.id)%>">
+        <span class="icon icon-person"></span>
+        <span class="tab-label">Profile</span>
+      </a>
+      <a class="tab-item" href="<%= new_user_question_path(current_user.id) %>">
+        <span class="icon icon-share"></span>
+        <span class="tab-label">Add case</span>
+      </a>
+      <% if current_user.nurse? %>
+      <a class="tab-item" href="">
+        <span class="icon icon-list"></span>
+        <span class="tab-label">Questions</span>
+      </a>
+      <% else %>
+      <a class="tab-item" href="<%= user_questions_path(current_user.id)%>">
+        <span class="icon icon-list"></span>
+        <span class="tab-label">Journal</span>
+      </a>
+      <% end %>
+    </nav>
     <% end %>
-  </nav>
-  <% end %>
 
-  <%= javascript_include_tag :application %>
-</body>
-</html>
+    <%= javascript_include_tag :application %>
+  </body>
+  </html>

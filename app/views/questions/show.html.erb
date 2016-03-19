@@ -1,6 +1,11 @@
 <% content_for :title do %>
-<%= @question.title %>
+  <%= @question.title %>
 <% end %>
+
+<% content_for :back do %>
+  <%= link_to "Back", user_questions_path(current_user.id) %>
+<%end%>
+
 
 <div class="card question-details">
   <span id="item1mobile" class="control-content active">

@@ -1,5 +1,6 @@
 <li class="table-view-cell media">
-  <a class="navigate-right" href="<%=%>">
+  <a class="navigate-right"
+    href="<%=user_question_path(current_user, question.id)%>">
     <img class="media-object pull-left" src="http://baconmockup.com/42/42/">
     <div class="media-body">
       <%= question.title %>:
