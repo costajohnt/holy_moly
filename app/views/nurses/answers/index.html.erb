@@ -1,3 +1,37 @@
+<% content_for :title do %>
+  <%= @question.title %>
+<% end %>
+
+<% content_for :back do %>
+  <%= link_to "Back", user_questions_path(current_user.id) %>
+<%end%>
+
+
+<div class="card question-details">
+  <span id="item1mobile" class="control-content active">
+    <%= image_tag("http://baconmockup.com/400/250/") %>
+  </span>
+  <div class="media-body">
+    <p>
+      <ul class="table-view">
+        <li class="table-view-cell">
+          <h1>
+            <%=@question.title%>
+            <p>
+              <%=l @question.created_at, format: :short%>
+            </p>
+          </h1>
+          <span class="icon icon-star-filled"></span>4
+          <p>
+            <%= @question.content %>
+          </p>
+        </li>
+      </ul>
+    </p>
+    <hr />
+  </div>
+</div>
+
 <ul class="table-view">
   <%= render @answers %>
 </ul>
