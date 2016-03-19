@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :questions, only: [:index, :new, :create, :show]
   end
   resources :sessions, only: [:create]
-  resources :answers
-
+  resources :questions, only: [:new, :create, :update, :delete] do
+    resources :answers
+  end
 end

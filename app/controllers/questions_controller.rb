@@ -6,17 +6,19 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    # redirect user if already logged in
-    @question = Question.new(question_params)
-    @question.user_id = current_user.id
-    if @question.save
-      flash[:notice] = "Question saved."
-    else
-      flash[:error] = @question.errors.full_messages.join(', ')
+    if current_user.role = 'patient'
+      # redirect user if already logged in
+      @question = Question.new(question_params)
+      @question.user_id = current_user.id
+      if @question.save
+        flash[:notice] = "Question saved."
+      else
+        flash[:error] = @question.errors.full_messages.join(', ')
+      end
+      # redirect_to "/profile"
+      # refactored with route helpers:
+      redirect_to profile_path
     end
-    # redirect_to "/profile"
-    # refactored with route helpers:
-    redirect_to profile_path
   end
 
   def index
