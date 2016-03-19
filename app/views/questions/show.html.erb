@@ -10,7 +10,9 @@
 <div class="card question-details">
   <span id="item1mobile" class="control-content active">
     <% if @question.headshot_photos.present? %>
-      <%= image_tag headshot_custom_image_url(@question.headshot_photos.first.image_file_name) %>
+    <%= image_tag headshot_custom_image_url(@question.headshot_photos.first.image_file_name) %>
+    <% else %>
+    <img class="media-object pull-left" src="http://baconmockup.com/100/100/">
     <% end %>
   </span>
   <div class="media-body">
@@ -20,7 +22,7 @@
           <h1>
             <%=@question.title%>
             <p>
-              <%=time_ago_in_words @question.created_at%> ago
+              <%=l @question.created_at, format: :short%>
             </p>
           </h1>
           <span class="icon icon-star-filled"></span>4
