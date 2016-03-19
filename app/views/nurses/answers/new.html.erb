@@ -9,7 +9,16 @@
 
 <div class="card question-details">
   <span id="item1mobile" class="control-content active">
-    <%= image_tag("http://baconmockup.com/400/250/") %>
+    <% if @question.headshot_photos.present? %>
+    <%= image_tag(
+      headshot_custom_image_url(@question.headshot_photos.first.image_file_name),
+      size: "200x200"
+      )
+    %>
+    <% else %>
+    <img class="media-object pull-left" src="http://baconmockup.com/100/100/">
+    <% end %>
+
   </span>
   <div class="media-body">
     <p>
@@ -35,6 +44,6 @@
 New Answer
 
 <%= form_for [:nurses, @question, @answer] do |f| %>
-  <%= f.text_area :content, placeholder: "Detailed Answer", class: "form-control", size: "10x5" %>
+  <%= f.text_area :content, placeholder: "Detailed Answer", class: "form-control", size: "10x3" %>
   <%= f.submit "Save Answer", class: "btn btn-primary btn-block" %>
 <% end %>

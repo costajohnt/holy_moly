@@ -13,7 +13,9 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     @question.user_id = current_user.id
-    @question.headshot_photos << HeadshotPhoto.last
+    if HeadshotPhoto.count > 0
+      @question.headshot_photos << HeadshotPhoto.last
+    end
     if @question.save
       flash[:notice] = "Question saved."
     else

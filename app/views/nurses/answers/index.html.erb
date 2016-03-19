@@ -9,7 +9,11 @@
 
 <div class="card question-details">
   <span id="item1mobile" class="control-content active">
-    <%= image_tag("http://baconmockup.com/400/250/") %>
+    <%= image_tag(
+      headshot_custom_image_url(@question.headshot_photos.first.image_file_name),
+      size: "200x200"
+      )
+    %>
   </span>
   <div class="media-body">
     <p>

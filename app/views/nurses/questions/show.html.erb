@@ -10,7 +10,11 @@
 <div class="card question-details">
   <span id="item1mobile" class="control-content active">
     <% if @question.headshot_photos.present? %>
-    <%= image_tag headshot_custom_image_url(@question.headshot_photos.first.image_file_name) %>
+    <%= image_tag(
+      headshot_custom_image_url(@question.headshot_photos.first.image_file_name),
+      size: "200x200"
+      )
+    %>
     <% else %>
     <img class="media-object pull-left" src="http://baconmockup.com/100/100/">
     <% end %>
@@ -41,6 +45,8 @@
       <%= a.content%>
     <% end %>
     <hr />
-    <%= link_to "Add Your Answer", new_nurses_question_answer_path(user_id: current_user.id, question_id: @question.id), class: "btn btn-primary btn-outlined" %>
+    <%= link_to "Add Your Answer",
+         new_nurses_question_answer_path(user_id: current_user.id, question_id: @question.id), 
+         class: "btn btn-primary btn-outlined" %>
   </div>
 </div>
