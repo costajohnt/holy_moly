@@ -20,4 +20,10 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def headshot_custom_image_url(file_name)
+    'http://' + request.host_with_port + '/headshots/' + file_name
+  end
+
+  helper_method :headshot_custom_image_url
+
 end

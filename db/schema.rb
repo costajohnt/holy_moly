@@ -21,6 +21,18 @@ ActiveRecord::Schema.define(version: 20160319215006) do
     t.integer  "question_id"
   end
 
+  create_table "headshot_photos", force: true do |t|
+    t.string   "description"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.integer  "capturable_id"
+    t.string   "capturable_type"
+    t.datetime "image_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "questions", force: true do |t|
     t.string   "query"
     t.integer  "user_id"
