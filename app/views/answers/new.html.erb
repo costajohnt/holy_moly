@@ -1,0 +1,9 @@
+<h1>New Answer</h1>
+<hr>
+<%= form_for @answer do |f| %>
+  <div class="form-group">
+    <%= f.text_field :content, placeholder: "Content", class: "form-control", autofocus: true %>
+  </div>
+  <%= f.submit "Save Question", class: "btn btn-primary" %>
+<% end %>
+<br>

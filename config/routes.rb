@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create]
   resources :sessions, only: [:create]
-  resources :answers
-  resources :questions, only: [:new, :create]
-
+  resources :questions, only: [:new, :create, :update, :delete] do
+    resources :answers
+  end
 end
