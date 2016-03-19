@@ -19,6 +19,7 @@ class QuestionsController < ApplicationController
       # refactored with route helpers:
       redirect_to profile_path
     end
+    render :show
   end
 
   def index
@@ -27,6 +28,7 @@ class QuestionsController < ApplicationController
 
   def show
     @question = Question.find(params[:id])
+    render :show
   end
 
   private
