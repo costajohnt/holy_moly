@@ -11,9 +11,10 @@ module Nurses
       @question = Question.find(params[:question_id])
     end
 
-    def create 
+    def create
       @question = Question.find(params[:question_id])
-      @answer = current_user.answers.create(answer_params)
+      @answer = Answer.create(answer_params)
+      @answer.email = current_user.email
 
       if @answer.save
         @question.answers << @answer

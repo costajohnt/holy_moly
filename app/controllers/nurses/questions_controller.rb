@@ -6,7 +6,7 @@ module Nurses
 
     def show
       @question = Question.find(params[:id])
-      render :show
+      @answers = Answer.where(question_id: params[:id])
     end
 
   end
