@@ -19,11 +19,8 @@ class QuestionsController < ApplicationController
       else
         flash[:error] = @question.errors.full_messages.join(', ')
       end
-      # redirect_to "/profile"
-      # refactored with route helpers:
-      # redirect_to profile_path
+      redirect_to user_questions_path(current_user.id)
     end
-    render :show
   end
 
   def show
