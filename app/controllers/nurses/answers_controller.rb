@@ -18,7 +18,7 @@ module Nurses
 
       if @answer.save
         @question.answers << @answer
-        redirect_to nurses_question_answers_path
+        redirect_to nurses_question_path(params[:question_id])
       end
     end
 

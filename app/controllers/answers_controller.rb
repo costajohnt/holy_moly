@@ -9,7 +9,7 @@ class AnswersController < ApplicationController
     @question = Question.find(params[:question_id])
   end
 
-  def create 
+  def create
     if current_user.role = 'nurse'
       @question = Question.find(params[:question_id])
       @answer = current_user.answers.create(answer_params)
