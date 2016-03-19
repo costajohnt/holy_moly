@@ -34,20 +34,16 @@
     <%end %>
   </header>
 
-  <div class="container text-center">
+  <div class="">
     <% flash.each do |name, msg| %>
     <% content_tag :div, msg, class: "alert #{name == 'error' ? 'alert-danger' : 'alert-info'}" %>
     <% end %>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <%= yield %>
-      </div>
-    </div>
-    <hr>
-    <!-- for demo purposes: shows current logged-in user -->
-    <p>Current user: <%= current_user.email if current_user %></p>
   </div>
 
+  <div class="content">
+    <p class="content-padded">
+    <%= yield %>
+  </div>
 
   <% if current_user %>
   <nav class="bar bar-tab">
@@ -59,10 +55,17 @@
       <span class="icon icon-share"></span>
       <span class="tab-label">Submit</span>
     </a>
+    <% if current_user.nurse? %>
     <a class="tab-item" href="#">
+      <span class="icon icon-list"></span>
+      <span class="tab-label">Questions</span>
+    </a>
+    <% else %>
+    <a class="tab-item" href="<%= user_questions_path(current_user.id)%>">
       <span class="icon icon-list"></span>
       <span class="tab-label">Journal</span>
     </a>
+    <% end %>
   </nav>
   <% end %>
 
