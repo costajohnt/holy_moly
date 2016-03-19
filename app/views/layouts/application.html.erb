@@ -20,7 +20,11 @@
 
   <header class="bar bar-nav">
     <h1 class="title">
-      <%=yield :title%>
+      <% if content_for? :title %>
+        <%=yield :title%>
+      <% else %>
+        HolyMoly
+      <% end %>
     </h1>
     <% if current_user %>
     <% if content_for :back %>

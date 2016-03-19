@@ -39,3 +39,7 @@ gem 'sqlite3'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem "paperclip", "~> 4.3"
+
+group :development do |variable|
+gem 'pry'  
+end
