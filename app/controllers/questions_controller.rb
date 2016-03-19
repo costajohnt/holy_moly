@@ -11,7 +11,6 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    # redirect user if already logged in
     @question = Question.new(question_params)
     @question.user_id = current_user.id
     @question.headshot_photos << HeadshotPhoto.last
