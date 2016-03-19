@@ -1,5 +1,9 @@
 class QuestionsController < ApplicationController
 
+  def index
+    @questions = Question.all
+  end
+
   def new
     @question = Question.new
     render :new
@@ -20,10 +24,6 @@ class QuestionsController < ApplicationController
       redirect_to profile_path
     end
     render :show
-  end
-
-  def index
-    @questions = Question.where(user_id: current_user.id)
   end
 
   def show

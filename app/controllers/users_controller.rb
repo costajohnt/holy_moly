@@ -33,6 +33,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    @questions = Question.where(user_id: current_user.id)
     render :show
   end
 
