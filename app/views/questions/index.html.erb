@@ -1,0 +1,7 @@
+Your questions
+<% @questions.each do |q| %>
+    <li>
+      <%= q.title %>:
+      <%= q.content %>
+    </li>
+<% end %>

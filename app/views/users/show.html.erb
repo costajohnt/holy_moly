@@ -2,3 +2,4 @@
 <hr>
 <p>You are currently logged in. <%= link_to "Click here", logout_path %> to log out.</p>
 <hr>
+<p><%= link_to "Ask a question", new_user_question_path(current_user.id) %></p>
