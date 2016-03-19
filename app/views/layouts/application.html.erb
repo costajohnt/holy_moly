@@ -19,7 +19,9 @@
 <body>
 
   <header class="bar bar-nav">
-    <h1 class="title">Holy Moly</h1>
+    <h1 class="title">
+      <%=yield :title%>
+    </h1>
     <% if current_user %>
     <button class="btn pull-right">
       <%= link_to "Log out", logout_path %>
