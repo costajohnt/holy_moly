@@ -6,15 +6,17 @@ class AnswersController < ApplicationController
 
   def new
     @answer = Answer.new
+    @question = Question.find(params[:question_id])
   end
 
   def create 
     if current_user.role = 'nurse'
-      answer_params = params.require(:answer).permit(:content)
-      answer = Answer.new(answer_params)
+      @question = Question.find(params[:question_id])
+      @answer = current_user.answers.create(answer_params)
 
-      if answer.save
-        render 'question#show'  #This is PSEUDO CODE
+      if @answer.save
+        @question.answers << @answer
+        redirect_to nurses_question_answer
       end
     end
   end
@@ -48,4 +50,11 @@ class AnswersController < ApplicationController
       render 'question#show'  #This is PSEUDO CODE
     end
   end
+
+  private
+
+  def answer_params
+    params.require(:answer).permit(:content)
+  end
+
 end

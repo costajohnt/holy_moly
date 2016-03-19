@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
       end
       # redirect_to "/profile"
       # refactored with route helpers:
-      redirect_to profile_path
+      # redirect_to profile_path
     end
     render :show
   end
